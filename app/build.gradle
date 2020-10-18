@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.eretz_ir"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    compile 'com.android.support:support-v4:19.0.0'
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile('com.google.api-client:google-api-client-xml:1.17.0-rc') {
+        exclude group: 'com.google.android.google-play-services'
+    }
+    compile 'com.google.http-client:google-http-client-gson:1.17.0-rc'
+    compile('com.google.api-client:google-api-client-android:1.17.0-rc') {
+        exclude group: 'com.google.android.google-play-services'
+    }
+    compile 'com.google.apis:google-api-services-drive:v2-rev105-1.17.0-rc'
+}
