@@ -1,7 +1,7 @@
 package com.example.eretz_ir;
 
-public class Definitions{
-    public String[] definitions={"דמות מהתנ\"ך",
+public class Definitions {
+    public String[] definitions = {"דמות מהתנ\"ך",
             "דמות מצויירת",
             "סלב",
             "משהו לתלות על הקיר",
@@ -85,12 +85,13 @@ public class Definitions{
             "חיה אוכלת בשר",
             "אביזר עישון",
             "מסלול טיולים",
-            "מתחרז עם בלון","עיר בירה","יחידת מידה","דמות מדיסני","סטיקר משירת הסטיקר","מתנה לבחורה","איבר","קללה","משהו שקורה בחדר השינה","משהו שעושים בטיול שנתי"};
+            "מתחרז עם בלון", "עיר בירה", "יחידת מידה", "דמות מדיסני", "סטיקר משירת הסטיקר", "מתנה לבחורה", "איבר", "קללה", "משהו שקורה בחדר השינה", "משהו שעושים בטיול שנתי"};
 
-    public String getString(int index){
+    public String getString(int index) {
         return definitions[index];
     }
-    public int getLen(){
+
+    public int getLen() {
         return definitions.length;
     }
 }
