@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     int num_of_teams = 2;
     int num_of_rounds = 1;
     int secs_per_round = 20;
     int secs_per_question = 3;
+    private NumberPicker teamsNumPicker;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -23,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        NumberPicker teamsNumPicker = (NumberPicker) findViewById(R.id.numberPickerTeams);
+        teamsNumPicker = (NumberPicker) findViewById(R.id.numberPickerTeams);
         teamsNumPicker.setMaxValue(5);
         teamsNumPicker.setMinValue(2);
         teamsNumPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
