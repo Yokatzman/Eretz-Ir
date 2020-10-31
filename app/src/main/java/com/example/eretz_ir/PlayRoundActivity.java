@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -53,6 +54,7 @@ public class PlayRoundActivity extends AppCompatActivity {
         //ROUND TIMER
         final int[] timer_array={gameArgs.secs_per_round};
         final boolean round_finished = false;
+        final MediaPlayer buzzerPlayer = MediaPlayer.create(this,R.raw.buzzer);
         CountDownTimer roundTimer = new CountDownTimer(gameArgs.secs_per_round*1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -69,6 +71,7 @@ public class PlayRoundActivity extends AppCompatActivity {
                 Intent intent = new Intent(currScreen, table);
                 GameArguments GameCopy = new GameArguments(gameArgs);
                 RoundArguments RoundCopy = new RoundArguments(roundArgs);
+                buzzerPlayer.start();
                 intent.putExtra("GAME_ARGS",GameCopy);
                 intent.putExtra("ROUND_ARGS",roundArgs);
                 intent.putExtra("ANSWERS",answersTable);
@@ -98,12 +101,14 @@ public class PlayRoundActivity extends AppCompatActivity {
         }.start();
 
         //answer buttons response
+        final MediaPlayer correctPlayer = MediaPlayer.create(this,R.raw.correct);
 
-        Button correct = (Button) findViewById(R.id.correct);
+        final Button correct = (Button) findViewById(R.id.correct);
         correct.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                correctPlayer.start();
                 roundArgs.addPoint();
                 answersTable.addAnswer(current_def[0],true);
                 do {
