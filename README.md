@@ -10,4 +10,4 @@ The Eretz Ir 2 android app is the game management tool for the game "referee" to
 playing this game a few times in it's regular "real life" version, I've noticed the volunteering game manager always struggles- managing the timers each round, choosing the definition to read, and keeping tracks of how many right answers each group got.
 therefore I decided to write an app to eliminate all of these challenges.
 
-![main game screen](https://drive.google.com/file/d/1rp2F8QXvQrZRqe3B5LAq7PNVEGwxyVxQ)
+![main game screen](https://drive.google.com/uc?export=view&id=1rp2F8QXvQrZRqe3B5LAq7PNVEGwxyVxQ)
