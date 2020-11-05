@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -34,8 +35,13 @@ public class CheckAnswersActivity extends AppCompatActivity {
         ConstraintSet set = new ConstraintSet();
 
         int i = 0;
+        final TextView score = new TextView(this);
+        score.setText("תשובות נכונות: "+roundArgs.getCurrentScore());
+        score.setId(answers.size()+2);
         for (final Map.Entry<String,Boolean> answer :answers.entrySet()){
+
             if (i==0){
+                //adding answers
                 final Switch upper = new Switch(this);
                 upper.setId(i+1);
                 upper.setText(answer.getKey());
@@ -51,11 +57,13 @@ public class CheckAnswersActivity extends AppCompatActivity {
                             upper.setBackgroundColor(getResources().getColor(R.color.incorrect));
                             answer.setValue(false);
                             roundArgs.deductPoint();
+                            score.setText("תשובות נכונות: "+roundArgs.getCurrentScore());
                         }
                         else{
                             upper.setBackgroundColor(getResources().getColor(R.color.correct));
                             answer.setValue(true);
                             roundArgs.addPoint();
+                            score.setText("תשובות נכונות: "+roundArgs.getCurrentScore());
                         }
 
 
@@ -86,11 +94,13 @@ public class CheckAnswersActivity extends AppCompatActivity {
                         lower.setBackgroundColor(getResources().getColor(R.color.incorrect));
                         answer.setValue(false);
                         roundArgs.deductPoint();
+                        score.setText("תשובות נכונות: "+roundArgs.getCurrentScore());
                     }
                     else{
                         lower.setBackgroundColor(getResources().getColor(R.color.correct));
                         answer.setValue(true);
                         roundArgs.addPoint();
+                        score.setText("תשובות נכונות: "+roundArgs.getCurrentScore());
                     }
 
 
@@ -105,13 +115,19 @@ public class CheckAnswersActivity extends AppCompatActivity {
 
             i++;
             if (i==answers.size()){
+
                 Button proceed = new Button(this);
                 proceed.setId(i+1);
                 proceed.setText("המשך!");
+
                 proceed.setTextSize(text_size+4);
                 layout.addView(proceed,new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                layout.addView(score,new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 set.clone(layout);
-                set.connect(proceed.getId(),ConstraintSet.TOP,lower.getId(),ConstraintSet.BOTTOM,20);
+                set.connect(score.getId(),ConstraintSet.LEFT,R.id.scrollable,ConstraintSet.RIGHT,0);
+                set.connect(score.getId(),ConstraintSet.RIGHT,R.id.scrollable,ConstraintSet.LEFT,0);
+                set.connect(score.getId(),ConstraintSet.TOP,lower.getId(),ConstraintSet.BOTTOM,20);
+                set.connect(proceed.getId(),ConstraintSet.TOP,score.getId(),ConstraintSet.BOTTOM,20);
                 set.connect(proceed.getId(),ConstraintSet.LEFT,R.id.scrollable,ConstraintSet.RIGHT,0);
                 set.connect(proceed.getId(),ConstraintSet.RIGHT,R.id.scrollable,ConstraintSet.LEFT,0);
                 set.applyTo(layout);

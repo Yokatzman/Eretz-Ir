@@ -57,4 +57,7 @@ public class RoundArguments implements Serializable{
     public int getCurrentRound(){
         return current_round;
     }
+    public int getCurrentScore(){
+        return round_scores.get(current_team-1);
+    }
 }
