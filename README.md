@@ -12,4 +12,4 @@ therefore I decided to write an app to eliminate all of these challenges.
 
 ![main game screen](https://drive.google.com/uc?export=view&id=1rp2F8QXvQrZRqe3B5LAq7PNVEGwxyVxQ)
 
-<img src="https://drive.google.com/uc?export=view&id=1rp2F8QXvQrZRqe3B5LAq7PNVEGwxyVxQ" width="40%">
+<img src="https://drive.google.com/uc?export=view&id=1rp2F8QXvQrZRqe3B5LAq7PNVEGwxyVxQ" width="80%">
